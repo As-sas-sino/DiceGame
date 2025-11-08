@@ -26,7 +26,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.Networking;
+    using Mirror;
     using UnityEngine.XR.ARFoundation;
 
     /// <summary>
@@ -58,7 +58,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// Will spawn the origin anchor and host the Cloud Anchor. Must be called by the host.
         /// </summary>
         /// <param name="referencePoint">The AR Reference Point to be hosted.</param>
-        public void SpawnAnchor(ARReferencePoint referencePoint)
+        public void SpawnAnchor(ARAnchor referencePoint)
         {
             // Instantiate Anchor model at the hit pose.
             var anchorObject = Instantiate(CloudAnchorsController.instance.anchorPrefab, Vector3.zero, Quaternion.identity);
@@ -145,34 +145,39 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         }
 
         [ClientRpc]
-        public void RpcWinners(NetworkInstanceId[] winners, int value)
+        public void RpcWinners(uint[] winners, int value)
         {
             var isWinner = false;
-            NetworkInstanceId[] realWinners = winners
-                .Where(w => winners.Count(wi => wi == w) > Mathf.FloorToInt(winners.Length / 2)).ToArray();
-            foreach(var winner in realWinners)
-                if (winner.Equals(localPlayer.netId))
+            uint[] realWinners = winners
+                .Where(w => winners.Count(wi => wi == w) > Mathf.FloorToInt(winners.Length / 2))
+                .ToArray();
+
+            foreach (var winner in realWinners)
+            {
+                if (winner == localPlayer.netId)
                 {
                     isWinner = true;
                     break;
                 }
+            }
 
             LaunchDice.instance.FoundWinner(isWinner, value, realWinners.Length > 1);
         }
         
         [ClientRpc]
-        public void RpcRoundWinners(NetworkInstanceId[] winners, int roundNo)
+        public void RpcRoundWinners(uint[] winners, int roundNo)
         {
             var isWinner = false;
-            foreach(var winner in winners)
-                if (winner.Equals(localPlayer.netId))
+            foreach (var winner in winners)
+            {
+                if (winner == localPlayer.netId)
                 {
                     isWinner = true;
                     break;
                 }
+            }
 
             LaunchDice.instance.FoundRoundWinner(isWinner, roundNo, winners.Length > 1);
         }
-
     }
 }

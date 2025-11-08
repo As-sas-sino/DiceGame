@@ -22,12 +22,13 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
 {
     using Google.XR.ARCoreExtensions;
     using UnityEngine;
-    using UnityEngine.Networking;
+    using Mirror;
     using UnityEngine.XR.ARFoundation;
+    using UnityEngine.XR.ARSubsystems;
 
     /// <summary>
     /// A Controller for the Anchor object that handles hosting and resolving the
-    /// <see cref="ARCloudReferencePoint"/>.
+    /// <see cref="ARCloudAnchor"/>.
     /// </summary>
 #pragma warning disable 618
     public class AnchorController : NetworkBehaviour
@@ -42,7 +43,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         private const float k_ResolvingTimeout = 10.0f;
 
         /// <summary>
-        /// The Cloud Reference ID for the hosted anchor's <see cref="ARCloudReferencePoint"/>.
+        /// The Cloud Reference ID for the hosted anchor's <see cref="ARCloudAnchor"/>.
         /// This variable will be synchronized over all clients.
         /// </summary>
 #pragma warning disable 618
@@ -82,7 +83,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// The Cloud Reference Point created locally which is used to moniter whether the
         /// hosting or resolving process finished.
         /// </summary>
-        private ARCloudReferencePoint m_CloudReferencePoint;
+        private ARCloudAnchor m_CloudAnchor;
 
         /// <summary>
         /// The Cloud Anchors example controller.
@@ -93,7 +94,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// The AR Reference Point Manager in the scene, used to host or resolve a Cloud Reference
         /// Point.
         /// </summary>
-        private ARReferencePointManager m_ReferencePointManager;
+        private ARAnchorManager m_AnchorManager;
 
         /// <summary>
         /// The Unity Awake() method.
@@ -105,7 +106,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
 #endif
             Debug.Log("Anchor awake");
             m_CloudAnchorsController = CloudAnchorsController.instance;
-            m_ReferencePointManager = m_CloudAnchorsController.ReferencePointManager;
+            m_AnchorManager = m_CloudAnchorsController.AnchorManager;
         }
 
         /// <summary>
@@ -133,7 +134,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
             {
                 if (m_ShouldUpdatePoint)
                 {
-                    _UpdateHostedCloudReferencePoint();
+                    _UpdateHostedCloudAnchor();
                 }
             }
             else
@@ -156,7 +157,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
                         }
                     }
 
-                    if (!string.IsNullOrEmpty(m_CloudReferenceId) && m_CloudReferencePoint == null)
+                    if (!string.IsNullOrEmpty(m_CloudReferenceId) && m_CloudAnchor == null)
                     {
                         _ResolveReferencePointId(m_CloudReferenceId);
                     }
@@ -164,7 +165,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
 
                 if (m_ShouldUpdatePoint)
                 {
-                    _UpdateResolvedCloudReferencePoint();
+                  _UpdateResolvedCloudAnchor();
                 }
             }
 #endif
@@ -173,21 +174,21 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// <summary>
         /// Command run on the server to set the Cloud Reference Id.
         /// </summary>
-        /// <param name="cloudReferenceId">The new Cloud Reference Id.</param>
+        /// <param name="cloudAnchorId">The new Cloud Reference Id.</param>
 #pragma warning disable 618
         [Command]
 #pragma warning restore 618
-        public void CmdSetCloudReferenceId(string cloudReferenceId)
+        public void CmdSetCloudReferenceId(string cloudAnchorId)
         {
-            Debug.Log("Update cloud reference id with: " + cloudReferenceId);
-            m_CloudReferenceId = cloudReferenceId;
+            Debug.Log("Update cloud reference id with: " + cloudAnchorId);
+            m_CloudReferenceId = cloudAnchorId;
         }
 
         /// <summary>
         /// Hosts the user placed cloud anchor and associates the resulting Id with this object.
         /// </summary>
         /// <param name="referencePoint">The last placed anchor.</param>
-        public void HostReferencePoint(ARReferencePoint referencePoint)
+        public void HostReferencePoint(ARAnchor referencePoint)
         {
             m_IsHost = true;
             m_ShouldResolve = false;
@@ -196,10 +197,10 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
             //GetComponent<TableManager>().ActivateCollider();
             tableMesh.SetActive(true);
 
-            m_CloudReferencePoint =
-                ARReferencePointManagerExtensions.AddCloudReferencePoint(
-                    m_ReferencePointManager, referencePoint);
-            if (m_CloudReferencePoint == null)
+            m_CloudAnchor =
+                ARAnchorManagerExtensions.HostCloudAnchor(
+                    m_AnchorManager, referencePoint);
+            if (m_CloudAnchor == null)
             {
                 Debug.LogError("Failed to add Cloud Reference Point.");
                 m_CloudAnchorsController.OnAnchorHosted(
@@ -215,17 +216,17 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// <summary>
         /// Resolves the cloud reference Id and instantiate a Cloud Reference Point on it.
         /// </summary>
-        /// <param name="cloudReferenceId">The cloud reference Id to be resolved.</param>
-        private void _ResolveReferencePointId(string cloudReferenceId)
+        /// <param name="cloudAnchorId">The cloud reference Id to be resolved.</param>
+        private void _ResolveReferencePointId(string cloudAnchorId)
         {
             m_CloudAnchorsController.OnAnchorInstantiated(false);
-            m_CloudReferencePoint =
-                ARReferencePointManagerExtensions.ResolveCloudReferenceId(
-                    m_ReferencePointManager, cloudReferenceId);
-            if (m_CloudReferencePoint == null)
+            m_CloudAnchor =
+                ARAnchorManagerExtensions.ResolveCloudAnchorId(
+                    m_AnchorManager, cloudAnchorId);
+            if (m_CloudAnchor == null)
             {
                 Debug.LogErrorFormat("Client could not resolve Cloud Reference Point {0}.",
-                    cloudReferenceId);
+                    cloudAnchorId);
                 m_CloudAnchorsController.OnAnchorResolved(
                     false, "Client could not resolve Cloud Reference Point.");
                 m_ShouldResolve = true;
@@ -241,27 +242,27 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// <summary>
         /// Update the anchor if hosting Cloud Reference Point is success.
         /// </summary>
-        private void _UpdateHostedCloudReferencePoint()
+        private void _UpdateHostedCloudAnchor()
         {
-            if (m_CloudReferencePoint == null)
+            if (m_CloudAnchor == null)
             {
                 Debug.LogError("No Cloud Reference Point.");
                 return;
             }
 
-            CloudReferenceState cloudReferenceState =
-                m_CloudReferencePoint.cloudReferenceState;
-            if (cloudReferenceState == CloudReferenceState.Success)
+            CloudAnchorState cloudAnchorState =
+                m_CloudAnchor.cloudAnchorState;
+            if (cloudAnchorState == CloudAnchorState.Success)
             {
-                CmdSetCloudReferenceId(m_CloudReferencePoint.cloudReferenceId);
+                CmdSetCloudReferenceId(m_CloudAnchor.cloudAnchorId);
                 m_CloudAnchorsController.OnAnchorHosted(
                     true, "Successfully hosted Cloud Reference Point.");
                 m_ShouldUpdatePoint = false;
             }
-            else if (cloudReferenceState != CloudReferenceState.TaskInProgress)
+            else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
             {
                 m_CloudAnchorsController.OnAnchorHosted(false,
-                    "Fail to host Cloud Reference Point with state: " + cloudReferenceState);
+                    "Fail to host Cloud Reference Point with state: " + cloudAnchorState);
                 m_ShouldUpdatePoint = false;
             }
         }
@@ -269,19 +270,19 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// <summary>
         /// Update the anchor if resolving Cloud Reference Point is success.
         /// </summary>
-        private void _UpdateResolvedCloudReferencePoint()
+        private void _UpdateResolvedCloudAnchor()
         {
-            if (m_CloudReferencePoint == null)
+            if (m_CloudAnchor == null)
             {
                 Debug.LogError("No Cloud Reference Point.");
                 return;
             }
 
-            CloudReferenceState cloudReferenceState =
-                m_CloudReferencePoint.cloudReferenceState;
-            if (cloudReferenceState == CloudReferenceState.Success)
+            CloudAnchorState cloudAnchorState =
+                m_CloudAnchor.cloudAnchorState;
+            if (cloudAnchorState == CloudAnchorState.Success)
             {
-                transform.SetParent(m_CloudReferencePoint.transform, false);
+                transform.SetParent(m_CloudAnchor.transform, false);
                 tableMesh.SetActive(true);
                 m_CloudAnchorsController.OnAnchorResolved(
                     true,
@@ -292,11 +293,11 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
                 m_PassedResolvingTimeout = true;
                 m_ShouldUpdatePoint = false;
             }
-            else if (cloudReferenceState != CloudReferenceState.TaskInProgress)
+            else if (cloudAnchorState != CloudAnchorState.TaskInProgress)
             {
                 m_CloudAnchorsController.OnAnchorResolved(
                     false,
-                    "Fail to resolve Cloud Reference Point with state: " + cloudReferenceState);
+                    "Fail to resolve Cloud Reference Point with state: " + cloudAnchorState);
                 m_ShouldUpdatePoint = false;
             }
         }
@@ -312,7 +313,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
             {
                 m_CloudReferenceId = newId;
                 m_ShouldResolve = true;
-                m_CloudReferencePoint = null;
+                m_CloudAnchor = null;
             }
 #endif
         }

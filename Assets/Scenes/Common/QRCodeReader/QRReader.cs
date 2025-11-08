@@ -99,87 +99,63 @@ public class QRReader : MonoBehaviour
     }
 
     unsafe void OnCameraFrameReceived(ARCameraFrameEventArgs eventArgs)
+{
+    if (!scanning || BarcodeScanner == null)
+        return;
+
+    if (!CameraManager.TryAcquireLatestCpuImage(out XRCpuImage image))
+        return;
+
+    StartCoroutine(ProcessImage(image));
+}
+
+IEnumerator ProcessImage(XRCpuImage image)
+{
+    var conversionParams = new XRCpuImage.ConversionParams
     {
-        // Attempt to get the latest camera image. If this method succeeds,
-        // it acquires a native resource that must be disposed (see below).
+        inputRect = new RectInt(0, 0, image.width, image.height),
+        outputDimensions = new Vector2Int(image.width / 2, image.height / 2),
+        outputFormat = TextureFormat.RGB24,
+        transformation = XRCpuImage.Transformation.MirrorY
+    };
 
-        if (!scanning || BarcodeScanner == null)
-            return;
+    // Create the async conversion request
+    var request = image.ConvertAsync(conversionParams);
 
-        XRCameraImage image;
-        if (!CameraManager.TryGetLatestImage(out image))
-        {
-            return;
-        }
+    while (!request.status.IsDone())
+        yield return null;
 
-        StartCoroutine(ProcessImage(image));
-        image.Dispose();
-    }
-
-    IEnumerator ProcessImage(XRCameraImage image)
+    if (request.status != XRCpuImage.AsyncConversionStatus.Ready)
     {
-        // Create the async conversion request
-        var request = image.ConvertAsync(new XRCameraImageConversionParams
-        {
-            // Use the full image
-            inputRect = new RectInt(0, 0, image.width, image.height),
-
-            // Downsample by 2
-            outputDimensions = new Vector2Int(image.width / 2, image.height / 2),
-
-            // Color image format
-            outputFormat = TextureFormat.RGB24,
-
-            // Flip across the Y axis
-            transformation = CameraImageTransformation.MirrorY
-        });
-
-        // Wait for it to complete
-        while (!request.status.IsDone())
-            yield return null;
-
-        //Debug.Log("done");
-        // Check status to see if it completed successfully.
-        if (request.status != AsyncCameraImageConversionStatus.Ready)
-        {
-            // Something went wrong
-            Debug.LogErrorFormat("Request failed with status {0}", request.status);
-
-            // Dispose even if there is an error.
-            request.Dispose();
-            yield break;
-        }
-
-        // Image data is ready. Let's apply it to a Texture2D.
-        var rawData = request.GetData<byte>();
-
-        // Create a texture if necessary
-
-        //tex = null;
-        if (tex == null)
-        {
-            tex = new Texture2D(
-                request.conversionParams.outputDimensions.x,
-                request.conversionParams.outputDimensions.y,
-                request.conversionParams.outputFormat,
-                false);
-        }
-
-        // Copy the image data into the texture
-        tex.LoadRawTextureData(rawData);
-        /*var rawTexture = tex.GetRawTextureData<Byte>();
-        rawTexture = rawData;*/
-        tex.Apply();
-        //img.texture = tex;
-        BarcodeScanner.pixels = tex.GetPixels32(0);
-        BarcodeScanner.Settings.height = tex.height;
-        BarcodeScanner.Settings.width = tex.width;
-        BarcodeScanner.Update();
-
-        // Need to dispose the request to delete resources associated
-        // with the request, including the raw data.
+        Debug.LogErrorFormat("Image conversion failed with status {0}", request.status);
         request.Dispose();
+        image.Dispose();
+        yield break;
     }
+
+    var rawData = request.GetData<byte>();
+
+    if (tex == null)
+    {
+        tex = new Texture2D(
+            conversionParams.outputDimensions.x,
+            conversionParams.outputDimensions.y,
+            conversionParams.outputFormat,
+            false);
+    }
+
+    tex.LoadRawTextureData(rawData);
+    tex.Apply();
+
+    BarcodeScanner.pixels = tex.GetPixels32(0);
+    BarcodeScanner.Settings.height = tex.height;
+    BarcodeScanner.Settings.width = tex.width;
+    BarcodeScanner.Update();
+
+    request.Dispose();
+    image.Dispose();
+}
+
 
     public void ClickStop()
     {

@@ -22,7 +22,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
 {
     using System;
     using UnityEngine;
-    using UnityEngine.Networking;
+    using Mirror;
 
     /// <summary>
     /// A NetworkManager that handles client connection and disconnection with customizable actions.
@@ -46,19 +46,12 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// </summary>
         /// <param name="conn">Connection to the server.</param>
 #pragma warning disable 618
-        public override void OnClientConnect(NetworkConnection conn)
+
+        public override void OnClientConnect()
 #pragma warning restore 618
         {
-            base.OnClientConnect(conn);
-            if (conn.lastError == NetworkError.Ok)
-            {
-                Debug.Log("Successfully connected to server.");
-            }
-            else
-            {
-                Debug.LogError("Connected to server with error: " + conn.lastError);
-            }
-
+            base.OnClientConnect();
+            Debug.Log("Successfully connected to server.");
             OnClientConnected?.Invoke();
         }
 
@@ -67,19 +60,11 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// </summary>
         /// <param name="conn">Connection to the server.</param>
 #pragma warning disable 618
-        public override void OnClientDisconnect(NetworkConnection conn)
+        public override void OnClientDisconnect()
 #pragma warning restore 618
         {
-            base.OnClientDisconnect(conn);
-            if (conn.lastError == NetworkError.Ok)
-            {
-                Debug.Log("Successfully disconnected from the server.");
-            }
-            else
-            {
-                Debug.LogError("Disconnected from the server with error: " + conn.lastError);
-            }
-
+            base.OnClientDisconnect();
+            Debug.Log("Successfully disconnected from server.");
             OnClientDisconnected?.Invoke();
         }
     }

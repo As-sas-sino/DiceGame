@@ -1,20 +1,36 @@
+//-----------------------------------------------------------------------
+// <copyright file="NetworkManagerUIController.cs" company="Google">
+//
+// Copyright 2019 Google LLC. All Rights Reserved.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+// </copyright>
+//-----------------------------------------------------------------------
 
 namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
 {
     using System.Collections.Generic;
     using UnityEngine;
-    using UnityEngine.Networking;
-    using UnityEngine.Networking.Match;
-    using UnityEngine.Networking.Types;
+    using Mirror;
     using UnityEngine.SceneManagement;
     using UnityEngine.UI;
 
     /// <summary>
-    /// Controller managing UI for joining and creating rooms.
+    /// Controller managing UI for starting/stopping host and client using Mirror.
+    /// This replaces UNet matchmaking-based UI with a simple host/client flow.
     /// </summary>
-#pragma warning disable 618
     [RequireComponent(typeof(CloudAnchorsNetworkManager))]
-#pragma warning restore 618
     public class NetworkManagerUIController : MonoBehaviour
     {
         /// <summary>
@@ -23,275 +39,200 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         public CloudAnchorsController CloudAnchorsController;
 
         /// <summary>
-        /// The number of matches that will be shown.
+        /// The Network Manager (must derive from Mirror.NetworkManager).
         /// </summary>
-        private const int k_MatchPageSize = 5;
-
-        /// <summary>
-        /// The Network Manager.
-        /// </summary>
-#pragma warning disable 618
         private CloudAnchorsNetworkManager m_Manager;
-#pragma warning restore 618
 
         /// <summary>
-        /// The current room number.
+        /// Optional UI elements (wire in Inspector).
+        /// </summary>
+        [Header("UI (optional)")]
+        public InputField addressInput;   // IP or hostname to join
+        public Button hostButton;
+        public Button joinButton;
+        public Button stopButton;
+
+        /// <summary>
+        /// Local cached room number (if needed by UI).
         /// </summary>
         private string m_CurrentRoomNumber;
 
         /// <summary>
-        /// The Join Room buttons.
-        /// </summary>
-        private List<GameObject> m_JoinRoomButtonsPool = new List<GameObject>();
-
-        /// <summary>
-        /// The Unity Awake() method.
+        /// Awake: cache manager and hook UI buttons if set.
         /// </summary>
         public void Awake()
         {
-#pragma warning disable 618
             m_Manager = GetComponent<CloudAnchorsNetworkManager>();
-#pragma warning restore 618
-            m_Manager.StartMatchMaker();
-#if UNITY_EDITOR
-            GetMatchList();
-#endif
-        }
 
-        public void StartGame()
-        {
-            GetMatchList();
-        }
-
-        private void GetMatchList()
-        {
-            m_Manager.matchMaker.ListMatches(
-                startPageNumber: 0,
-                resultPageSize: k_MatchPageSize,
-                matchNameFilter: string.Empty,
-                filterOutPrivateMatchesFromResults: false,
-                eloScoreTarget: 0,
-                requestDomain: 0,
-                callback: _OnMatchList);
-        }
-
-        /// <summary>
-        /// Handles the user intent to create a new room.
-        /// </summary>
-        public void CreateMatch()
-        {
-            m_Manager.matchMaker.CreateMatch(
-                m_Manager.matchName, m_Manager.matchSize, true, string.Empty, string.Empty,
-                string.Empty, 0, 0, _OnMatchCreate);
-        }
-
-        /// <summary>
-        /// Handles the user intent to refresh the room list.
-        /// </summary>
-        public void OnRefhreshRoomListClicked()
-        {
-            m_Manager.matchMaker.ListMatches(
-                startPageNumber: 0,
-                resultPageSize: k_MatchPageSize,
-                matchNameFilter: string.Empty,
-                filterOutPrivateMatchesFromResults: false,
-                eloScoreTarget: 0,
-                requestDomain: 0,
-                callback: _OnMatchList);
-        }
-
-        /// <summary>
-        /// Callback indicating that the Cloud Anchor was instantiated and the host request was
-        /// made.
-        /// </summary>
-        /// <param name="isHost">Indicates whether this player is the host.</param>
-        public void OnAnchorInstantiated(bool isHost)
-        {
-            if (isHost)
+            if (hostButton != null)
             {
-                MessageHandler.instance.ShowMessage("Hosting Cloud Anchor...");
+                hostButton.onClick.AddListener(StartHost);
             }
-            else
+
+            if (joinButton != null)
             {
-                MessageHandler.instance.ShowMessage("Cloud Anchor added to session! Attempting to resolve anchor...");
+                joinButton.onClick.AddListener(StartClientFromUI);
+            }
+
+            if (stopButton != null)
+            {
+                stopButton.onClick.AddListener(StopNetwork);
             }
         }
 
         /// <summary>
-        /// Callback indicating that the Cloud Anchor was hosted.
+        /// Start hosting (server + client).
         /// </summary>
-        /// <param name="success">If set to <c>true</c> indicates the Cloud Anchor was hosted
-        /// successfully.</param>
-        /// <param name="response">The response string received.</param>
-        public void OnAnchorHosted(bool success, string response)
+        public void StartHost()
         {
-            if (success)
+            if (m_Manager == null)
             {
-                MessageHandler.instance.ShowMessage("Cloud Anchor successfully hosted!\nWaiting for other player");
-            }
-            else
-            {
-                MessageHandler.instance.ShowMessage("Cloud Anchor could not be hosted. " + response);
-            }
-        }
-
-        /// <summary>
-        /// Callback indicating that the Cloud Anchor was resolved.
-        /// </summary>
-        /// <param name="success">If set to <c>true</c> indicates the Cloud Anchor was resolved
-        /// successfully.</param>
-        /// <param name="response">The response string received.</param>
-        public void OnAnchorResolved(bool success, string response)
-        {
-            if (success)
-            {
-                MessageHandler.instance.ShowMessage("Cloud Anchor successfully resolved!");
-            }
-            else
-            {
-                MessageHandler.instance.ShowMessage("Cloud Anchor could not be resolved. Will attempt again. " + response);
-            }
-        }
-
-        /// <summary>
-        /// Use the snackbar to display the error message.
-        /// </summary>
-        /// <param name="debugMessage">The debug message to be displayed on the snackbar.</param>
-        public void ShowDebugMessage(string debugMessage)
-        {
-            MessageHandler.instance.ShowMessage(debugMessage);
-        }
-
-        /// <summary>
-        /// Handles the user intent to join the room associated with the button clicked.
-        /// </summary>
-        /// <param name="match">The information about the match that the user intents to
-        /// join.</param>
-#pragma warning disable 618
-        private void JoinRoom(MatchInfoSnapshot match)
-#pragma warning restore 618
-        {
-            m_Manager.matchName = match.name;
-            m_Manager.matchMaker.JoinMatch(match.networkId, string.Empty, string.Empty,
-                                         string.Empty, 0, 0, _OnMatchJoined);
-        }
-
-        /// <summary>
-        /// Callback that happens when a <see cref="NetworkMatch.ListMatches"/> request has been
-        /// processed on the server.
-        /// </summary>
-        /// <param name="success">Indicates if the request succeeded.</param>
-        /// <param name="extendedInfo">A text description for the error if success is false.</param>
-        /// <param name="matches">A list of matches corresponding to the filters set in the initial
-        /// list request.</param>
-#pragma warning disable 618
-        private void _OnMatchList(bool success, string extendedInfo, List<MatchInfoSnapshot> matches)
-#pragma warning restore 618
-        {
-            if (!success)
-            {
-                GetMatchList();
+                MessageHandler.instance.ShowMessage("Network manager not found.");
                 return;
             }
 
-            m_Manager.OnMatchList(success, extendedInfo, matches);
-            bool joinedRoom = false;
-            if (m_Manager.matches != null && m_Manager.matches.Count > 0)
-            {
-#pragma warning disable 618
-                foreach (var match in m_Manager.matches)
-#pragma warning restore 618
-                {
-                    if (match.currentSize < match.maxSize)
-                    {
-                        JoinRoom(match);
-                        joinedRoom = true;
-                        break;
-
-                    }
-                }
-            }
-
-            if (!joinedRoom)
-            {
-                CreateMatch();
-            }
+            MessageHandler.instance.ShowMessage("Starting host...");
+            m_Manager.StartHost();
+            // Notify CloudAnchors controller to switch to hosting mode.
+            CloudAnchorsController?.OnEnterHostingMode();
         }
 
         /// <summary>
-        /// Callback that happens when a <see cref="NetworkMatch.CreateMatch"/> request has been
-        /// processed on the server.
+        /// Start client using the address present in the input field (or default manager address).
         /// </summary>
-        /// <param name="success">Indicates if the request succeeded.</param>
-        /// <param name="extendedInfo">A text description for the error if success is false.</param>
-        /// <param name="matchInfo">The information about the newly created match.</param>
-#pragma warning disable 618
-        private void _OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo)
-#pragma warning restore 618
+        public void StartClientFromUI()
         {
-            if (!success)
+            if (m_Manager == null)
             {
-                MessageHandler.instance.ShowMessage("Could not create match: " + extendedInfo);
-                GetMatchList();
+                MessageHandler.instance.ShowMessage("Network manager not found.");
                 return;
             }
 
-            m_Manager.OnMatchCreate(success, extendedInfo, matchInfo);
-            m_CurrentRoomNumber = _GetRoomNumberFromNetworkId(matchInfo.networkId);
-            MessageHandler.instance.ShowMessage("Connecting to server...");
-            CloudAnchorsController.OnEnterHostingMode();
+            string addr = m_Manager.networkAddress;
+            if (addressInput != null && !string.IsNullOrEmpty(addressInput.text))
+            {
+                addr = addressInput.text.Trim();
+                m_Manager.networkAddress = addr;
+            }
 
+            MessageHandler.instance.ShowMessage($"Connecting to {addr}...");
+            m_Manager.StartClient();
+            // Notify CloudAnchors controller to switch to resolving mode.
+            CloudAnchorsController?.OnEnterResolvingMode();
         }
 
         /// <summary>
-        /// Callback that happens when a <see cref="NetworkMatch.JoinMatch"/> request has been
-        /// processed on the server.
+        /// Stop host or client and reload scene to reset state.
         /// </summary>
-        /// <param name="success">Indicates if the request succeeded.</param>
-        /// <param name="extendedInfo">A text description for the error if success is false.</param>
-        /// <param name="matchInfo">The info for the newly joined match.</param>
-#pragma warning disable 618
-        private void _OnMatchJoined(bool success, string extendedInfo, MatchInfo matchInfo)
-#pragma warning restore 618
+        public void StopNetwork()
         {
-            if (!success)
+            if (m_Manager == null)
             {
-                MessageHandler.instance.ShowMessage("Could not join to match: " + extendedInfo);
-                GetMatchList();
+                MessageHandler.instance.ShowMessage("Network manager not found.");
                 return;
             }
 
-            m_Manager.OnMatchJoined(success, extendedInfo, matchInfo);
-            m_CurrentRoomNumber = _GetRoomNumberFromNetworkId(matchInfo.networkId);
-            MessageHandler.instance.ShowMessage("Connecting to server...");
-            CloudAnchorsController.OnEnterResolvingMode();
-        }
-
-        /// <summary>
-        /// Callback that happens when a <see cref="NetworkMatch.DropConnection"/> request has been
-        /// processed on the server.
-        /// </summary>
-        /// <param name="success">Indicates if the request succeeded.</param>
-        /// <param name="extendedInfo">A text description for the error if success is false.
-        /// </param>
-        private void _OnMatchDropped(bool success, string extendedInfo)
-        {
-            if (!success)
+            if (NetworkServer.active && NetworkClient.isConnected)
             {
-                MessageHandler.instance.ShowMessage("Could not drop the match: " + extendedInfo);
-                return;
+                // We are host
+                m_Manager.StopHost();
+            }
+            else if (NetworkClient.isConnected)
+            {
+                m_Manager.StopClient();
+            }
+            else if (NetworkServer.active)
+            {
+                m_Manager.StopServer();
             }
 
-            m_Manager.OnDropConnection(success, extendedInfo);
-#pragma warning disable 618
-            NetworkManager.Shutdown();
-#pragma warning restore 618
+            MessageHandler.instance.ShowMessage("Network stopped.");
+            // Optionally reload the CloudAnchors scene to reset state.
             SceneManager.LoadScene("CloudAnchors");
         }
 
-        private string _GetRoomNumberFromNetworkId(NetworkID networkID)
+        /// <summary>
+        /// Legacy methods from UNet (matchmaking) removed.
+        /// The project uses direct host/join flow via Mirror.
+        /// </summary>
+
+        #region Backwards-compatible stubs (no-op)
+
+        // If other parts of the project call these older methods, you can either:
+        // - Update those callers to call StartHost/StartClientFromUI/StopNetwork, or
+        // - Add adapter methods here to translate calls.
+        // For now we keep no-op placeholders to avoid missing-method compile errors.
+
+        public void StartGame()
         {
-            return (System.Convert.ToInt64(networkID.ToString()) % 10000).ToString();
+            // kept for compatibility - start host by default
+            StartHost();
         }
+
+        #endregion
+
+
+                #region Compatibility methods for CloudAnchorsController
+
+        /// <summary>
+        /// Displays a debug message in the console (used by CloudAnchorsController).
+        /// </summary>
+        public void ShowDebugMessage(string message)
+        {
+            if (MessageHandler.instance != null)
+            {
+                MessageHandler.instance.ShowMessage(message);
+            }
+            else
+            {
+                Debug.Log($"[NetworkManagerUI] {message}");
+            }
+        }
+
+        /// <summary>
+        /// Called when an anchor is hosted.
+        /// </summary>
+        public void OnAnchorHosted(bool success, string info)
+        {
+            string msg = success
+                ? $"✅ Anchor successfully hosted: {info}"
+                : $"❌ Failed to host anchor: {info}";
+
+            if (MessageHandler.instance != null)
+                MessageHandler.instance.ShowMessage(msg);
+            else
+                Debug.Log(msg);
+        }
+
+        /// <summary>
+        /// Called when an anchor is resolved.
+        /// </summary>
+        public void OnAnchorResolved(bool success, string info)
+        {
+            string msg = success
+                ? $"✅ Anchor successfully resolved: {info}"
+                : $"❌ Failed to resolve anchor: {info}";
+
+            if (MessageHandler.instance != null)
+                MessageHandler.instance.ShowMessage(msg);
+            else
+                Debug.Log(msg);
+        }
+
+        #endregion
+
+
+
+        // --- Metodi placeholder per compatibilità con CloudAnchorsController ---
+
+public void OnAnchorInstantiated(bool isHost)
+{
+    // In futuro puoi aggiornare la UI qui se necessario
+    MessageHandler.instance.ShowMessage(
+        isHost ? "Anchor instantiated (host)" : "Anchor instantiated (client)");
+}
+
+
+
     }
 }

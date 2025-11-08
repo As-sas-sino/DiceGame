@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Networking;
+using Mirror;
 using UnityEngine.UI;
 
 public class LaunchDice : MonoBehaviour
@@ -28,13 +28,13 @@ public class LaunchDice : MonoBehaviour
 
     struct PlayerValue
     {
-        public NetworkInstanceId player;
+        public uint player;
         public int value;
         public int turn;
     }
 
     private List<PlayerValue> playersValue;
-    private NetworkInstanceId currentPlayer;
+    private uint currentPlayer;
 
     private int localDiceValue = 0, numPlayersActiveDices = 0;
     private List<int> diceValues;
@@ -237,7 +237,7 @@ public class LaunchDice : MonoBehaviour
         NetworkServer.Destroy(Turricola.gameObject);
     }
 
-    public void SetCurrentPlayer(NetworkInstanceId player)
+    public void SetCurrentPlayer(uint player)
     {
         currentPlayer = player;
     }
@@ -290,7 +290,7 @@ public class LaunchDice : MonoBehaviour
         yield return new WaitForSeconds(3f);
         debugString = "3";
         int maxValue = -1;
-        var winners = new List<NetworkInstanceId>();
+        var winners = new List<uint>();
 
         for (int curValue = playersValue.Count - 1;
             curValue >= playersValue.Count - CloudAnchorsController.instance.GetNetworkManager().numPlayers;
@@ -322,7 +322,7 @@ public class LaunchDice : MonoBehaviour
     {
         yield return new WaitForSeconds(4f);
         var maxValue = -1;
-        var winners = new List<NetworkInstanceId>();
+        var winners = new List<uint>();
         for (int curTurn = 0; curTurn < numberOfTurns; ++curTurn)
         {
             maxValue = -1;

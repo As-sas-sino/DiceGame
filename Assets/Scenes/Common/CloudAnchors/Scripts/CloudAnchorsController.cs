@@ -24,9 +24,10 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
     using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.EventSystems;
-    using UnityEngine.Networking;
+    using Mirror;
     using UnityEngine.SceneManagement;
     using UnityEngine.XR.ARFoundation;
+    
 
     /// <summary>
     /// Controller for the Cloud Anchors Example. Handles the ARCore lifecycle.
@@ -60,7 +61,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// <summary>
         /// The active AR Reference Point Manager used in the example.
         /// </summary>
-        public ARReferencePointManager ReferencePointManager;
+        public ARAnchorManager AnchorManager;
 
         /// <summary>
         /// The active AR Raycast Manager used in the example.
@@ -128,7 +129,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// The Network Manager.
         /// </summary>
 #pragma warning disable 618
-        private CloudAnchorsNetworkManager m_NetworkManager;
+        private NetworkManager m_NetworkManager;
 #pragma warning restore 618
 
         /// <summary>
@@ -203,11 +204,18 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// </summary>
         public void Start()
         {
-#pragma warning disable 618
-            m_NetworkManager = NetworkUIController.GetComponent<CloudAnchorsNetworkManager>();
-#pragma warning restore 618
-            m_NetworkManager.OnClientConnected += _OnConnectedToServer;
-            m_NetworkManager.OnClientDisconnected += _OnDisconnectedFromServer;
+m_NetworkManager = FindObjectOfType<NetworkManager>();
+
+if (m_NetworkManager == null)
+{
+    Debug.LogWarning("⚠️ Mirror NetworkManager non trovato nella scena.");
+}
+else
+{
+    NetworkClient.OnConnectedEvent += _OnConnectedToServer;
+    NetworkClient.OnDisconnectedEvent += _OnDisconnectedFromServer;
+}
+
 
             // A Name is provided to the Game Object so it can be found by other Scripts
             // instantiated as prefabs in the scene.
@@ -278,10 +286,9 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
             {
                 if (!IsOriginPlaced && m_CurrentMode == ApplicationMode.Hosting)
                 {
-                    ARReferencePoint referencePoint =
-                        ReferencePointManager.AddReferencePoint(hitResults[0].pose);
-                    WorldOrigin = referencePoint.transform;
-                    _InstantiateAnchor(referencePoint);
+                    ARAnchor anchor = AnchorManager.AddAnchor(hitResults[0].pose);
+                    WorldOrigin = anchor.transform;
+                    _InstantiateAnchor(anchor);
                     OnAnchorInstantiated(true);
                 }
             }
@@ -441,10 +448,7 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         {
             numClientReady++;
             Debug.Log(numClientReady);
-            if(numClientReady == m_NetworkManager.matchSize)
-            {
-                LaunchDice.instance.PlayerReadyForLaunch();
-            }
+           LaunchDice.instance.PlayerReadyForLaunch();
         }
 
         public bool IsHost()
@@ -514,10 +518,10 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// This will host the Cloud Anchor.
         /// </summary>
         /// <param name="referencePoint">The reference point holding the anchor.</param>
-        private void _InstantiateAnchor(ARReferencePoint referencePoint)
+        private void _InstantiateAnchor(ARAnchor anchor)
         {
             // The anchor will be spawned by the host, so no networking Command is needed.
-            LocalPlayerController.localPlayer.SpawnAnchor(referencePoint);
+           LocalPlayerController.localPlayer.SpawnAnchor(anchor);
         }
 
 
@@ -607,15 +611,18 @@ namespace Google.XR.ARCoreExtensions.Samples.CloudAnchors
         /// </summary>
         private void _DoReturnToLobby()
         {
-#pragma warning disable 618
-            NetworkManager.Shutdown();
-#pragma warning restore 618
-            SceneManager.LoadScene("CloudAnchors");
+            if (NetworkServer.active || NetworkClient.isConnected)
+{
+    NetworkManager.singleton.StopHost();
+    NetworkManager.singleton.StopClient();
+}
+SceneManager.LoadScene("CloudAnchors");
         }
-
+        
         public NetworkManager GetNetworkManager()
         {
-            return m_NetworkManager;
+            // Temporaneo: disattivato finché non migriamo a Photon Fusion
+    return m_NetworkManager;
         }
     }
 }
