@@ -21,10 +21,33 @@ public class DiceController : MonoBehaviour
     }
 
     public void Activate()
-    {
-        diceObject.SetActive(true);
-        //GetComponent<Rigidbody>().isKinematic = false;
-    }
+{
+    diceObject.SetActive(true);
+
+    Rigidbody rb = diceObject.GetComponent<Rigidbody>();
+    rb.isKinematic = false;
+    rb.useGravity = true;
+
+    // Reset movimenti precedenti
+    rb.linearVelocity = Vector3.zero;
+    rb.angularVelocity = Vector3.zero;
+
+    // Direzione del lancio: un po' diagonale verso il basso
+    Vector3 throwDirection = new Vector3(
+        Random.Range(-0.5f, 0.5f),  // leggera spinta laterale casuale
+        -1f,                        // verso il basso
+        Random.Range(-0.5f, 0.5f)   // leggera spinta frontale casuale
+    ).normalized;
+
+    // Aggiunge la spinta verso il tavolo
+    rb.AddForce(throwDirection * Random.Range(6f, 10f), ForceMode.Impulse);
+
+    // Aggiunge una coppia per farlo ruotare
+    rb.AddTorque(Random.insideUnitSphere * Random.Range(10f, 20f), ForceMode.Impulse);
+}
+
+
+
 
     public void DiceLaunched()
     {
