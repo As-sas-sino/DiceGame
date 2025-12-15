@@ -8,14 +8,21 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/DiceGame/DiceGameCloudAnchors.unity
     guid: 4e7353174c292c245b026c04a7cceac9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DiceGame/DiceGameMarker.unity
     guid: a9b2e6b8218272b488f5f3112984fb40
+  - enabled: 1
+    path: Assets/Scenes/IdeaGameAndroid/IdeaGameSceneAndroid.unity
+    guid: 51aefe98a9ced26448d096d280dad20f
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 8db94917e48f9704a89efb2c953c2012,
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 67c8fb3922a9d39488cec8da5e28565b,
       type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 48f998f1d32a5f54bae032b66c6a1d7d,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0e09f71f798d5504ca35c77d7e2a0bf9,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: f979cc7b88be7e140a1cb74d431112f0,
       type: 2}
   m_UseUCBPForAssetBundles: 0

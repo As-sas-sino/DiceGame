@@ -1,37 +1,37 @@
-﻿using Google.XR.ARCoreExtensions.Samples.CloudAnchors;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
-/// This component listens for images detected by the <c>XRImageTrackingSubsystem</c>
-/// and overlays some information as well as the source Texture2D on top of the
-/// detected image.
+/// <summary>
+/// Gestisce il tracciamento delle immagini AR e istanzia un anchor
+/// nella posizione dell'immagine rilevata.
 /// </summary>
 [RequireComponent(typeof(ARTrackedImageManager))]
-[RequireComponent(typeof(ARSessionOrigin))]
 public class TrackedImageInfoManager : MonoBehaviour
 {
+    [Header("Anchor")]
+    [Tooltip("Prefab da istanziare quando viene rilevata un'immagine")]
+    public GameObject anchorPrefab;
+
     private GameObject anchor;
+    private ARTrackedImageManager trackedImageManager;
 
-    ARTrackedImageManager m_TrackedImageManager;
-
-    void Awake()
+    private void Awake()
     {
-        m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
+        trackedImageManager = GetComponent<ARTrackedImageManager>();
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
-        m_TrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
-        m_TrackedImageManager.enabled = true;
+        trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
+        trackedImageManager.enabled = true;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        m_TrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
+        trackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-
-    void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
+    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
         foreach (var trackedImage in eventArgs.added)
         {
@@ -41,17 +41,31 @@ public class TrackedImageInfoManager : MonoBehaviour
         foreach (var trackedImage in eventArgs.updated)
         {
             if (anchor == null)
+            {
                 SpawnAnchor(trackedImage.transform.position);
+            }
 
-            if(trackedImage.GetComponent<Renderer>().isVisible)
+            if (trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
+            {
                 anchor.transform.position = trackedImage.transform.position;
+                anchor.transform.rotation = trackedImage.transform.rotation;
+            }
         }
-
     }
 
     private void SpawnAnchor(Vector3 position)
     {
-        anchor = Instantiate(CloudAnchorsController.instance.anchorPrefab, position, Quaternion.identity);
-        MessageHandler.instance.ShowMessage("In attesa dell'altro giocatore");
+        if (anchorPrefab == null)
+        {
+            Debug.LogError("[TrackedImageInfoManager] Anchor Prefab non assegnato!");
+            return;
+        }
+
+        anchor = Instantiate(anchorPrefab, position, Quaternion.identity);
+
+        if (MessageHandler.instance != null)
+        {
+            MessageHandler.instance.ShowMessage("In attesa dell'altro giocatore");
+        }
     }
 }
