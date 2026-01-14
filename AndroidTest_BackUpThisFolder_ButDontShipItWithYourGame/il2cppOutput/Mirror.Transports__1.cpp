@@ -247,7 +247,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour__ctor_m592DB0105CA0BC97AA1
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 54217
+// Method Definition Index: 55806
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__cctor_m4CE808EFB7DCDE380A067C52E6C6C7CDC230E4D3 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -264,7 +264,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__cctor_m4CE808EFB7DCDE380A067C52
 		return;
 	}
 }
-// Method Definition Index: 54218
+// Method Definition Index: 55807
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__ctor_m303A8A69EE7C8E94AD3BA79EFA6A6611C2B273BA (U3CU3Ec_t0D20024867235B0542CC64D2729E1FE5DA539936* __this, const RuntimeMethod* method) 
 {
 	{
@@ -272,7 +272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec__ctor_m303A8A69EE7C8E94AD3BA79EF
 		return;
 	}
 }
-// Method Definition Index: 54219
+// Method Definition Index: 55808
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CAwakeU3Eb__8_0_m623073481898F79A580C338552C8D4B1B7A5C60F (U3CU3Ec_t0D20024867235B0542CC64D2729E1FE5DA539936* __this, String_t* ___0__, const RuntimeMethod* method) 
 {
 	{
@@ -312,7 +312,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CU3Ec_U3CAwakeU3Eb__8_0_m623073481898F
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 54220
+// Method Definition Index: 55809
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RelayCredentialsFromArgs_Awake_mCC7B2E864EE0131EAEDEC3E934B55CDAFA189085 (RelayCredentialsFromArgs_tEFC92A47F6CFAE5F2CA930A63AFBD0C9AF766E7C* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -370,7 +370,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RelayCredentialsFromArgs_Awake_mCC7B2E86
 		return;
 	}
 }
-// Method Definition Index: 54221
+// Method Definition Index: 55810
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RelayCredentialsFromArgs__ctor_m62B3A9D209034A34D079A7868406C504E85A75B8 (RelayCredentialsFromArgs_tEFC92A47F6CFAE5F2CA930A63AFBD0C9AF766E7C* __this, const RuntimeMethod* method) 
 {
 	{

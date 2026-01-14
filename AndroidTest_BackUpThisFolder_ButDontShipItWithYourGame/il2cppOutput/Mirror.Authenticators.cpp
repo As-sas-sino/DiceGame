@@ -939,7 +939,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Format_mA8DBB4C2516B9723C5A4
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 59427
+// Method Definition Index: 61069
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_tF0AD8EA47C11448B2283E2410CBEB0112C11F7C2 UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_m3C857F415C59F5A5BF06DB24955F2A085DEFBF83 (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -973,7 +973,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR MonoScriptData_tF0AD8EA47C11448B2283E2410CBEB
 		return L_6;
 	}
 }
-// Method Definition Index: 59428
+// Method Definition Index: 61070
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_m2F8B7BC199EAEBA33135A83263205CF68C63374E (UnitySourceGeneratedAssemblyMonoScriptTypes_v1_t47D9B05E35F1C5F2BBF45787979ACF496274BCF6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1059,7 +1059,7 @@ IL2CPP_EXTERN_C void MonoScriptData_tF0AD8EA47C11448B2283E2410CBEB0112C11F7C2_ma
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 59429
+// Method Definition Index: 61071
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnStartServer_mDEC44C044CB63ED29E3CCAA35832F06386717436 (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1081,7 +1081,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnStartServer_mDEC44C
 		return;
 	}
 }
-// Method Definition Index: 59430
+// Method Definition Index: 61072
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnStopServer_m14529F3210F966D60386F4EB416AE2388568AB7B (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1099,7 +1099,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnStopServer_m14529F3
 		return;
 	}
 }
-// Method Definition Index: 59431
+// Method Definition Index: 61073
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnServerAuthenticate_m39D037B4674D65EC9D7D2B8AA861C8312CD78CD6 (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, NetworkConnectionToClient_t80F9FBDD786601CB93A63585D05BCAA1050C406A* ___0_conn, const RuntimeMethod* method) 
 {
 	{
@@ -1107,7 +1107,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnServerAuthenticate_
 		return;
 	}
 }
-// Method Definition Index: 59432
+// Method Definition Index: 61074
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnAuthRequestMessage_mCDBA358733186EF4B6C6555E95398016A7D9F6F1 (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, NetworkConnectionToClient_t80F9FBDD786601CB93A63585D05BCAA1050C406A* ___0_conn, AuthRequestMessage_t6F1EF2686ABA4F6CDC4B1175F4F5F01BF5D34ED0 ___1_msg, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1228,7 +1228,7 @@ IL_0064:
 		return;
 	}
 }
-// Method Definition Index: 59433
+// Method Definition Index: 61075
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* BasicAuthenticator_DelayedDisconnect_mD177A1D77FE61F97CA36369643424271270E43F7 (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, NetworkConnectionToClient_t80F9FBDD786601CB93A63585D05BCAA1050C406A* ___0_conn, float ___1_waitTime, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1256,7 +1256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* BasicAuthenticator_DelayedDisc
 		return L_4;
 	}
 }
-// Method Definition Index: 59434
+// Method Definition Index: 61076
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnStartClient_mEB6423BF99D05116542BA793CD907975BD7661AE (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1278,7 +1278,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnStartClient_mEB6423
 		return;
 	}
 }
-// Method Definition Index: 59435
+// Method Definition Index: 61077
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnStopClient_mAE9F335BC83EB834FDAA06A85919B37017FDDB1C (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1297,7 +1297,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnStopClient_mAE9F335
 		return;
 	}
 }
-// Method Definition Index: 59436
+// Method Definition Index: 61078
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnClientAuthenticate_m5623453221E966D53087A7816679CC1BEFC89E49 (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1330,7 +1330,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnClientAuthenticate_
 		return;
 	}
 }
-// Method Definition Index: 59437
+// Method Definition Index: 61079
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator_OnAuthResponseMessage_mD79A02731A30927D7E66F005B75CA435027D7D6B (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, AuthResponseMessage_tEEDBCA72E13E4F8BEDB7A61EC6B152366F1F5665 ___0_msg, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1370,7 +1370,7 @@ IL_0011:
 		return;
 	}
 }
-// Method Definition Index: 59438
+// Method Definition Index: 61080
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BasicAuthenticator__ctor_m78A344177A9D16263E840256790412079C676852 (BasicAuthenticator_t87771DEC26A4B5ABEAC1FC4B6A408BEB4F3B486A* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1488,7 +1488,7 @@ IL2CPP_EXTERN_C void AuthResponseMessage_tEEDBCA72E13E4F8BEDB7A61EC6B152366F1F56
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 59439
+// Method Definition Index: 61081
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDelayedDisconnectU3Ed__11__ctor_m1B0BFD86BE1E21DC5BB8DB7D1A351279317E546A (U3CDelayedDisconnectU3Ed__11_t13D3A9480518371A05F48DD1FCC1D1BACBF3996E* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -1498,14 +1498,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDelayedDisconnectU3Ed__11__ctor_m1B0B
 		return;
 	}
 }
-// Method Definition Index: 59440
+// Method Definition Index: 61082
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDelayedDisconnectU3Ed__11_System_IDisposable_Dispose_m0340B11448741B0C8F9B29BFF1AD10AA435DF43E (U3CDelayedDisconnectU3Ed__11_t13D3A9480518371A05F48DD1FCC1D1BACBF3996E* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 59441
+// Method Definition Index: 61083
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CDelayedDisconnectU3Ed__11_MoveNext_m95A2D4C4F5363AAF7792FB6A66D0B5E8E62CC551 (U3CDelayedDisconnectU3Ed__11_t13D3A9480518371A05F48DD1FCC1D1BACBF3996E* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1586,7 +1586,7 @@ IL_0066:
 		return (bool)0;
 	}
 }
-// Method Definition Index: 59442
+// Method Definition Index: 61084
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDelayedDisconnectU3Ed__11_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mC3F4C3526A6B69D7861607DB7C100D72BB18F224 (U3CDelayedDisconnectU3Ed__11_t13D3A9480518371A05F48DD1FCC1D1BACBF3996E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1594,7 +1594,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDelayedDisconnectU3Ed__11_S
 		return L_0;
 	}
 }
-// Method Definition Index: 59443
+// Method Definition Index: 61085
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDelayedDisconnectU3Ed__11_System_Collections_IEnumerator_Reset_mBFDD11B423C9C2D612A54D11573DCC8B6F1CD4FC (U3CDelayedDisconnectU3Ed__11_t13D3A9480518371A05F48DD1FCC1D1BACBF3996E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1603,7 +1603,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CDelayedDisconnectU3Ed__11_System_Coll
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CDelayedDisconnectU3Ed__11_System_Collections_IEnumerator_Reset_mBFDD11B423C9C2D612A54D11573DCC8B6F1CD4FC_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 59444
+// Method Definition Index: 61086
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDelayedDisconnectU3Ed__11_System_Collections_IEnumerator_get_Current_m5EF30450C7563B5AC0C99FCBCE6909BD55CD97D2 (U3CDelayedDisconnectU3Ed__11_t13D3A9480518371A05F48DD1FCC1D1BACBF3996E* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1619,7 +1619,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CDelayedDisconnectU3Ed__11_S
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 59445
+// Method Definition Index: 61087
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnStartServer_mBC66AFA4FF6C6D997BCFE82D79C429362FF8FC37 (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1641,7 +1641,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnStartServer_mBC66A
 		return;
 	}
 }
-// Method Definition Index: 59446
+// Method Definition Index: 61088
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnStopServer_mBFD26A5F57297583375F6C0A6E9CE32414DD7667 (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1659,7 +1659,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnStopServer_mBFD26A
 		return;
 	}
 }
-// Method Definition Index: 59447
+// Method Definition Index: 61089
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnServerAuthenticate_m4ADA3D11C9450CFB15622581C9ECEABAEFFC9580 (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, NetworkConnectionToClient_t80F9FBDD786601CB93A63585D05BCAA1050C406A* ___0_conn, const RuntimeMethod* method) 
 {
 	{
@@ -1667,7 +1667,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnServerAuthenticate
 		return;
 	}
 }
-// Method Definition Index: 59448
+// Method Definition Index: 61090
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnAuthRequestMessage_m9394D3C7BC83ACC6B857AA22C30D007105F0A89B (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, NetworkConnectionToClient_t80F9FBDD786601CB93A63585D05BCAA1050C406A* ___0_conn, AuthRequestMessage_t8AAEEE283D9AFEC2765C90E610FE9ED73FEF3CC9 ___1_msg, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1713,7 +1713,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnAuthRequestMessage
 		return;
 	}
 }
-// Method Definition Index: 59449
+// Method Definition Index: 61091
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnStartClient_m029772620AC8AE0C3A1F6FD5469DC018790DC05A (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1735,7 +1735,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnStartClient_m02977
 		return;
 	}
 }
-// Method Definition Index: 59450
+// Method Definition Index: 61092
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnStopClient_m40FD8E68C9CBDB42C0DE19495A3AD1B5EECCB6D5 (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1754,7 +1754,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnStopClient_m40FD8E
 		return;
 	}
 }
-// Method Definition Index: 59451
+// Method Definition Index: 61093
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnClientAuthenticate_m9EC9D02C73672F9B903B8FAEF2D082E5B611382D (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1814,7 +1814,7 @@ IL_003c:
 		return;
 	}
 }
-// Method Definition Index: 59452
+// Method Definition Index: 61094
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnAuthResponseMessage_m5E7E60254B9982DC85BDD21290C25B58C7346501 (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, AuthResponseMessage_tDDB9ADB12C1CFBB912FA905DD578D5DC6899B8CE ___0_msg, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1834,7 +1834,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator_OnAuthResponseMessag
 		return;
 	}
 }
-// Method Definition Index: 59453
+// Method Definition Index: 61095
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DeviceAuthenticator__ctor_mDC06EA1A28F111EC51A2E7FB09EBDD1DA09BFD48 (DeviceAuthenticator_t29CEB8BB38650EAF5B2E09CF4B6CE46CD0884799* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1894,7 +1894,7 @@ IL2CPP_EXTERN_C void AuthRequestMessage_t8AAEEE283D9AFEC2765C90E610FE9ED73FEF3CC
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 59454
+// Method Definition Index: 61096
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_Awake_m6F655C2CFA21572CBB178ECAB1E4BFDDF98B7077 (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -1929,7 +1929,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_Awake_m6F655C2CFA21
 		return;
 	}
 }
-// Method Definition Index: 59455
+// Method Definition Index: 61097
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnStartServer_m4138C22F18A844778A0CB9046425D3EC115E59DB (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1941,7 +1941,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnStartServer_m4138
 		return;
 	}
 }
-// Method Definition Index: 59456
+// Method Definition Index: 61098
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnStopServer_m447F0AF31D508FD77A26B69E0F8FED5D96290487 (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1953,7 +1953,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnStopServer_m447F0
 		return;
 	}
 }
-// Method Definition Index: 59457
+// Method Definition Index: 61099
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnStartClient_m24AF55F6453B3B049EFEE3DCAEA95B118DB78D41 (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1965,7 +1965,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnStartClient_m24AF
 		return;
 	}
 }
-// Method Definition Index: 59458
+// Method Definition Index: 61100
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnStopClient_m8B73E6737AB11C25D31FD7CA3C07EC91BEF2019E (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, const RuntimeMethod* method) 
 {
 	{
@@ -1977,7 +1977,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnStopClient_m8B73E
 		return;
 	}
 }
-// Method Definition Index: 59459
+// Method Definition Index: 61101
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnServerAuthenticate_m1F6D07EB846B28C96E43E3CF10A6008D733AC770 (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, NetworkConnectionToClient_t80F9FBDD786601CB93A63585D05BCAA1050C406A* ___0_conn, const RuntimeMethod* method) 
 {
 	{
@@ -2008,7 +2008,7 @@ IL_0027:
 		return;
 	}
 }
-// Method Definition Index: 59460
+// Method Definition Index: 61102
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_OnClientAuthenticate_mABA59561BFD6CF20B4FA9EE0FADBC396D83CB815 (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2046,7 +2046,7 @@ IL_002a:
 		return;
 	}
 }
-// Method Definition Index: 59461
+// Method Definition Index: 61103
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TimeoutAuthenticator_BeginAuthentication_m7CA6A84A44932A107DEAD121E7699E2D8F5A3A56 (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, NetworkConnection_t49880296B0FA972023F34582D7A41D7B63383E78* ___0_conn, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2070,7 +2070,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* TimeoutAuthenticator_BeginAuth
 		return L_2;
 	}
 }
-// Method Definition Index: 59462
+// Method Definition Index: 61104
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator__ctor_m03B54DC87A6FF7E540C8BDDEC9D7A922D83EDDD4 (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, const RuntimeMethod* method) 
 {
 	{
@@ -2080,7 +2080,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator__ctor_m03B54DC87A6F
 		return;
 	}
 }
-// Method Definition Index: 59463
+// Method Definition Index: 61105
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_U3CAwakeU3Eb__2_0_m5F0ABE77DFC0F5C02EC1DB46A3384A4C4BA5DFBE (TimeoutAuthenticator_t49D2A5C5AB3EF3E0D31F9626A779B82B9C916315* __this, NetworkConnectionToClient_t80F9FBDD786601CB93A63585D05BCAA1050C406A* ___0_connection, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2106,7 +2106,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void TimeoutAuthenticator_U3CAwakeU3Eb__2_0_m
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 59464
+// Method Definition Index: 61106
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CBeginAuthenticationU3Ed__9__ctor_mD220971F1815CE30ADE4AA463F9BE72A6597F520 (U3CBeginAuthenticationU3Ed__9_t10675D08A7CF6DF143E7707568E4D2F488DC8966* __this, int32_t ___0_U3CU3E1__state, const RuntimeMethod* method) 
 {
 	{
@@ -2116,14 +2116,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CBeginAuthenticationU3Ed__9__ctor_mD22
 		return;
 	}
 }
-// Method Definition Index: 59465
+// Method Definition Index: 61107
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CBeginAuthenticationU3Ed__9_System_IDisposable_Dispose_m871A0FFB682E36425BE4B741A08262362428A1E7 (U3CBeginAuthenticationU3Ed__9_t10675D08A7CF6DF143E7707568E4D2F488DC8966* __this, const RuntimeMethod* method) 
 {
 	{
 		return;
 	}
 }
-// Method Definition Index: 59466
+// Method Definition Index: 61108
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool U3CBeginAuthenticationU3Ed__9_MoveNext_mB8736F9DCDA19547853A6770CD5E519A18EA9A7F (U3CBeginAuthenticationU3Ed__9_t10675D08A7CF6DF143E7707568E4D2F488DC8966* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -2204,7 +2204,7 @@ IL_006c:
 		return (bool)0;
 	}
 }
-// Method Definition Index: 59467
+// Method Definition Index: 61109
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CBeginAuthenticationU3Ed__9_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mE4EB02F3CE91422FF2DF4579D989420DB6331D4E (U3CBeginAuthenticationU3Ed__9_t10675D08A7CF6DF143E7707568E4D2F488DC8966* __this, const RuntimeMethod* method) 
 {
 	{
@@ -2212,7 +2212,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CBeginAuthenticationU3Ed__9_
 		return L_0;
 	}
 }
-// Method Definition Index: 59468
+// Method Definition Index: 61110
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CBeginAuthenticationU3Ed__9_System_Collections_IEnumerator_Reset_m769F6AA9805769B2A046573340D5469FEE1D74EC (U3CBeginAuthenticationU3Ed__9_t10675D08A7CF6DF143E7707568E4D2F488DC8966* __this, const RuntimeMethod* method) 
 {
 	{
@@ -2221,7 +2221,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void U3CBeginAuthenticationU3Ed__9_System_Col
 		IL2CPP_RAISE_MANAGED_EXCEPTION(L_0, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&U3CBeginAuthenticationU3Ed__9_System_Collections_IEnumerator_Reset_m769F6AA9805769B2A046573340D5469FEE1D74EC_RuntimeMethod_var)));
 	}
 }
-// Method Definition Index: 59469
+// Method Definition Index: 61111
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CBeginAuthenticationU3Ed__9_System_Collections_IEnumerator_get_Current_mF06E6F6AD8A1E424DE336F837A84D8EB6AED02F4 (U3CBeginAuthenticationU3Ed__9_t10675D08A7CF6DF143E7707568E4D2F488DC8966* __this, const RuntimeMethod* method) 
 {
 	{
@@ -2256,7 +2256,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* U3CBeginAuthenticationU3Ed__9_
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
-// Method Definition Index: 46514
+// Method Definition Index: 46684
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR NetworkConnectionToServer_tABF88FD679833405BCFD6846C73D06F503A23F9F* NetworkClient_get_connection_m8FE7F7B376D22CEDD4AAED02297E6AA3D69A03D3_inline (const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
