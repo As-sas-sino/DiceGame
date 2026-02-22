@@ -40,7 +40,7 @@
           {
             "name": "AudioBehaviour",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -48,7 +48,7 @@
           {
             "name": "AudioClip",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -56,7 +56,7 @@
           {
             "name": "AudioListener",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -76,7 +76,7 @@
           {
             "name": "AudioResource",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -84,7 +84,7 @@
           {
             "name": "AudioSource",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -127,7 +127,7 @@
           {
             "name": "Camera",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -147,7 +147,7 @@
           {
             "name": "Cubemap",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -167,7 +167,7 @@
           {
             "name": "EditorExtension",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -181,7 +181,7 @@
           {
             "name": "GameObject",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -207,7 +207,7 @@
           {
             "name": "LevelGameManager",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -215,7 +215,7 @@
           {
             "name": "Light",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -235,7 +235,7 @@
           {
             "name": "LightmapSettings",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -255,7 +255,7 @@
           {
             "name": "Material",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -263,7 +263,7 @@
           {
             "name": "Mesh",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -271,7 +271,7 @@
           {
             "name": "MeshFilter",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -279,7 +279,7 @@
           {
             "name": "MeshRenderer",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -287,7 +287,7 @@
           {
             "name": "MonoBehaviour",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -301,7 +301,7 @@
           {
             "name": "MonoScript",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -309,7 +309,7 @@
           {
             "name": "NamedObject",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -341,7 +341,7 @@
           {
             "name": "RectTransform",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -355,7 +355,7 @@
           {
             "name": "RenderSettings",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -387,7 +387,7 @@
           {
             "name": "Shader",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -407,7 +407,7 @@
           {
             "name": "Sprite",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -849,13 +849,19 @@
           {
             "name": "BoxCollider",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
           },
           {
             "name": "CapsuleCollider",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          },
+          {
+            "name": "CharacterController",
             "scenes": [],
             "dependencyType": 0,
             "icon": null
@@ -899,7 +905,7 @@
           {
             "name": "MeshCollider",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -913,7 +919,7 @@
           {
             "name": "PhysicsMaterial",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -921,7 +927,7 @@
           {
             "name": "Rigidbody",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -955,6 +961,12 @@
       {
         "name": "Physics2D",
         "dependencies": [
+          {
+            "name": "Collider2D",
+            "scenes": [],
+            "dependencyType": 0,
+            "icon": null
+          },
           {
             "name": "Physics2DSettings",
             "scenes": [],
@@ -1273,7 +1285,7 @@
           {
             "name": "Font",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1316,7 +1328,7 @@
           {
             "name": "Canvas",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1324,7 +1336,7 @@
           {
             "name": "CanvasGroup",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -1332,7 +1344,7 @@
           {
             "name": "CanvasRenderer",
             "scenes": [
-              "Assets/Scenes/IdeaGameAR/IdeaGameSceneAR.unity"
+              "Assets/Scenes/DiceGameMultiplayer/DiceGameSceneMultiplayer.unity"
             ],
             "dependencyType": 0,
             "icon": null
