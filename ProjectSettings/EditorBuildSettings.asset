@@ -6,12 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/DiceGame/DiceGameCloudAnchors.unity
-    guid: 4e7353174c292c245b026c04a7cceac9
-  - enabled: 0
-    path: Assets/Scenes/DiceGame/DiceGameMarker.unity
-    guid: a9b2e6b8218272b488f5f3112984fb40
-  - enabled: 0
     path: Assets/Scenes/DiceGameAndroid/DiceGameSceneAndroid.unity
     guid: 51aefe98a9ced26448d096d280dad20f
   - enabled: 0

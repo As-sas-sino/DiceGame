@@ -71,6 +71,8 @@ public class FusionBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 
     private void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        
         if (started) return;
         started = true;
 

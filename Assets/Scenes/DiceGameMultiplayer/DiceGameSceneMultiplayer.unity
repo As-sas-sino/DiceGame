@@ -13969,7 +13969,7 @@ MonoBehaviour:
   welcomeState: {fileID: 436184414}
   gameState: {fileID: 395710936}
   roomName: Room_1
-  autoMode: 1
+  autoMode: 2
   editorHostBuildClient: 0
 --- !u!114 &864054732
 MonoBehaviour:
@@ -35893,6 +35893,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dado14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418024726947565423, guid: 29a2b5ecbcd9e4543b06afbbd46f783b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6418024726947795791, guid: 29a2b5ecbcd9e4543b06afbbd46f783b,
         type: 3}

@@ -241,7 +241,7 @@ IL2CPP_EXTERN_C int32_t CDECL nanosockets_address_get_ip(Address_t0C64043894DC43
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 70010
+// Method Definition Index: 59347
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Socket_get_IsCreated_m808C27EDEF63277B4567C6E4AE8BE8AF1772A701 (Socket_t46CD8CA395215449BFCC033F0B1B802E1DC42CF6* __this, const RuntimeMethod* method) 
 {
 	{
@@ -258,7 +258,7 @@ IL2CPP_EXTERN_C  bool Socket_get_IsCreated_m808C27EDEF63277B4567C6E4AE8BE8AF1772
 	_returnValue = Socket_get_IsCreated_m808C27EDEF63277B4567C6E4AE8BE8AF1772A701(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 70011
+// Method Definition Index: 59348
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t Socket_op_Implicit_m4A8C4A66658531E284B8918B73AF89CB7D6BEE9E (Socket_t46CD8CA395215449BFCC033F0B1B802E1DC42CF6 ___0_socket, const RuntimeMethod* method) 
 {
 	{
@@ -267,7 +267,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t Socket_op_Implicit_m4A8C4A66658531E28
 		return L_1;
 	}
 }
-// Method Definition Index: 70012
+// Method Definition Index: 59349
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Socket_t46CD8CA395215449BFCC033F0B1B802E1DC42CF6 Socket_op_Implicit_m3C97289072E892870B01964DF5389B8798138E31 (int64_t ___0_handle, const RuntimeMethod* method) 
 {
 	Socket_t46CD8CA395215449BFCC033F0B1B802E1DC42CF6 V_0;
@@ -287,7 +287,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Socket_t46CD8CA395215449BFCC033F0B1B802E1DC42
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 70013
+// Method Definition Index: 59350
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Address_Equals_m19F1A04FCFA04C181170EFE7B99B12A27FA2C6F6 (Address_t0C64043894DC43092287210A04CAD369B08FDBF3* __this, Address_t0C64043894DC43092287210A04CAD369B08FDBF3 ___0_other, const RuntimeMethod* method) 
 {
 	{
@@ -329,7 +329,7 @@ IL2CPP_EXTERN_C  bool Address_Equals_m19F1A04FCFA04C181170EFE7B99B12A27FA2C6F6_A
 	_returnValue = Address_Equals_m19F1A04FCFA04C181170EFE7B99B12A27FA2C6F6(_thisAdjusted, ___0_other, method);
 	return _returnValue;
 }
-// Method Definition Index: 70014
+// Method Definition Index: 59351
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Address_Equals_mDDBFB7BB02D6A7AF30ECBC0637B7CE220B7AC282 (Address_t0C64043894DC43092287210A04CAD369B08FDBF3* __this, RuntimeObject* ___0_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -370,7 +370,7 @@ IL2CPP_EXTERN_C  bool Address_Equals_mDDBFB7BB02D6A7AF30ECBC0637B7CE220B7AC282_A
 	_returnValue = Address_Equals_mDDBFB7BB02D6A7AF30ECBC0637B7CE220B7AC282(_thisAdjusted, ___0_obj, method);
 	return _returnValue;
 }
-// Method Definition Index: 70015
+// Method Definition Index: 59352
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Address_GetHashCode_m40F507481CB45DC401163A00C2C7DA21348A4D5F (Address_t0C64043894DC43092287210A04CAD369B08FDBF3* __this, const RuntimeMethod* method) 
 {
 	{
@@ -395,7 +395,7 @@ IL2CPP_EXTERN_C  int32_t Address_GetHashCode_m40F507481CB45DC401163A00C2C7DA2134
 	_returnValue = Address_GetHashCode_m40F507481CB45DC401163A00C2C7DA21348A4D5F(_thisAdjusted, method);
 	return _returnValue;
 }
-// Method Definition Index: 70016
+// Method Definition Index: 59353
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Address_ToString_m8A446F2E577DF79B979E0EFCEA892BB5D119909F (Address_t0C64043894DC43092287210A04CAD369B08FDBF3* __this, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
@@ -457,7 +457,7 @@ IL2CPP_EXTERN_C  String_t* Address_ToString_m8A446F2E577DF79B979E0EFCEA892BB5D11
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
 #pragma clang diagnostic ignored "-Wunused-variable"
 #endif
-// Method Definition Index: 70017
+// Method Definition Index: 59354
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_Initialize_m57075AE2BE769B96D5F004C4AA28B144D3516242 (const RuntimeMethod* method) 
 {
 	typedef int32_t (CDECL *PInvokeFunc) ();
@@ -479,7 +479,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_Initialize_m57075AE2BE769B96D5F00
 
 	return returnValue;
 }
-// Method Definition Index: 70018
+// Method Definition Index: 59355
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t UDP_Create_mB5F2E191961D17ECE4FA3F211BF3D6BD08E5BC19 (int32_t ___0_sendBufferSize, int32_t ___1_receiveBufferSize, const RuntimeMethod* method) 
 {
 	typedef int64_t (CDECL *PInvokeFunc) (int32_t, int32_t);
@@ -501,7 +501,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t UDP_Create_mB5F2E191961D17ECE4FA3F211
 
 	return returnValue;
 }
-// Method Definition Index: 70019
+// Method Definition Index: 59356
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UDP_Destroy_mF1ACFBED787AD6718D53AB70DB2E600E3865C6C7 (int64_t* ___0_socket, const RuntimeMethod* method) 
 {
 	typedef void (CDECL *PInvokeFunc) (int64_t*);
@@ -522,7 +522,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void UDP_Destroy_mF1ACFBED787AD6718D53AB70DB2
 	#endif
 
 }
-// Method Definition Index: 70020
+// Method Definition Index: 59357
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_Bind_m483D56DA0B36FD2C1CECC7B81F891927B66E3C3B (int64_t ___0_socket, Address_t0C64043894DC43092287210A04CAD369B08FDBF3* ___1_address, const RuntimeMethod* method) 
 {
 	typedef int32_t (CDECL *PInvokeFunc) (int64_t, Address_t0C64043894DC43092287210A04CAD369B08FDBF3*);
@@ -544,7 +544,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_Bind_m483D56DA0B36FD2C1CECC7B81F8
 
 	return returnValue;
 }
-// Method Definition Index: 70021
+// Method Definition Index: 59358
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_SetNonBlocking_m6B56D212ADCADB070E4C21F9671736EDDA01330F (int64_t ___0_socket, const RuntimeMethod* method) 
 {
 	typedef int32_t (CDECL *PInvokeFunc) (int64_t);
@@ -566,7 +566,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_SetNonBlocking_m6B56D212ADCADB070
 
 	return returnValue;
 }
-// Method Definition Index: 70022
+// Method Definition Index: 59359
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_Send_mAEAE53B0829B7F5787156BC0BA0DA4B56F8BAE3B (int64_t ___0_socket, Address_t0C64043894DC43092287210A04CAD369B08FDBF3* ___1_address, uint8_t* ___2_buffer, int32_t ___3_bufferLength, const RuntimeMethod* method) 
 {
 	typedef int32_t (CDECL *PInvokeFunc) (int64_t, Address_t0C64043894DC43092287210A04CAD369B08FDBF3*, uint8_t*, int32_t);
@@ -588,7 +588,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_Send_mAEAE53B0829B7F5787156BC0BA0
 
 	return returnValue;
 }
-// Method Definition Index: 70023
+// Method Definition Index: 59360
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_Receive_m5A791E2945312E13447D393FD45DB7CF50EDBFA9 (int64_t ___0_socket, Address_t0C64043894DC43092287210A04CAD369B08FDBF3* ___1_address, uint8_t* ___2_buffer, int32_t ___3_bufferLength, const RuntimeMethod* method) 
 {
 	typedef int32_t (CDECL *PInvokeFunc) (int64_t, Address_t0C64043894DC43092287210A04CAD369B08FDBF3*, uint8_t*, int32_t);
@@ -610,7 +610,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_Receive_m5A791E2945312E13447D393F
 
 	return returnValue;
 }
-// Method Definition Index: 70024
+// Method Definition Index: 59361
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_GetAddress_m6DCA3D3E0C05F8146BEF4E47502D0989BCBA1493 (int64_t ___0_socket, Address_t0C64043894DC43092287210A04CAD369B08FDBF3* ___1_address, const RuntimeMethod* method) 
 {
 	typedef int32_t (CDECL *PInvokeFunc) (int64_t, Address_t0C64043894DC43092287210A04CAD369B08FDBF3*);
@@ -632,7 +632,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_GetAddress_m6DCA3D3E0C05F8146BEF4
 
 	return returnValue;
 }
-// Method Definition Index: 70025
+// Method Definition Index: 59362
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_SetIP_mF1CF6D8F9786F22018C40EDF81EAB80067742E6C (Address_t0C64043894DC43092287210A04CAD369B08FDBF3* ___0_address, String_t* ___1_ip, const RuntimeMethod* method) 
 {
 	typedef int32_t (CDECL *PInvokeFunc) (Address_t0C64043894DC43092287210A04CAD369B08FDBF3*, char*);
@@ -660,7 +660,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_SetIP_mF1CF6D8F9786F22018C40EDF81
 
 	return returnValue;
 }
-// Method Definition Index: 70026
+// Method Definition Index: 59363
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t UDP_GetIP_mB9B2909D5C8B48DDAC8029FFBC0DA627E4AD7129 (Address_t0C64043894DC43092287210A04CAD369B08FDBF3* ___0_address, intptr_t ___1_ip, int32_t ___2_ipLength, const RuntimeMethod* method) 
 {
 	typedef int32_t (CDECL *PInvokeFunc) (Address_t0C64043894DC43092287210A04CAD369B08FDBF3*, intptr_t, int32_t);

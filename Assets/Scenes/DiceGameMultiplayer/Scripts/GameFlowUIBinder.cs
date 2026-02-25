@@ -146,7 +146,7 @@ public class GameFlowUIBinder : MonoBehaviour
         }
 
         // =========================
-        // SHOWING RESULT
+        // SHOWING RESULT 🔥
         // =========================
         if (game.Phase == FusionGameState.TurnPhase.ShowingResult)
         {
@@ -160,7 +160,13 @@ public class GameFlowUIBinder : MonoBehaviour
             else
             {
                 ui.IsResultPanelOpen = false;
-                ui.ShowTurnWaiting($"In attesa di {GetPlayerName(currentSlot)}");
+
+                string playerName = GetPlayerName(currentSlot);
+                byte dice = game.DiceResult;
+
+                ui.ShowTurnWaiting(
+                    $"In attesa di {playerName}...\nRisultato: {dice}"
+                );
             }
 
             ui.ApplyOrientation();

@@ -152,7 +152,7 @@ public class TablePlacementWithButton : MonoBehaviour
         {
             ui.TableHasAppeared = false;  // Reset sicurezza
             ui.HideConfirmPlacementUI(); // Nasconde bottone conferma
-            //ui.ShowWelcomePanelSmooth(); // Apre welcome animato
+            ui.ShowWelcomePanelSmooth(); // Apre welcome animato
         }
     }
 
